@@ -12,6 +12,7 @@ const findOrCreate = require("mongoose-findorcreate");
 const http = require("http");
 const app = express();
 var os = require("os");
+const e = require("express");
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -248,6 +249,20 @@ app.get("/contact", function (req, res) {
     res.render("contact");
 });
 
+app.get("/stats", async function (req, res) {
+    if (req.isAuthenticated()) {
+        const linksArray = req.user.links;
+        const linkObjects = await Link.find({ '_id': { $in: linksArray } });
+        console.log(linkObjects);
+        res.render("stats", {links: linkObjects});
+    }
+    else {
+        //Redirect to "/login" page if user is not logged-in
+        res.redirect("/login");
+    }
+    //res.render("stats");
+});
+
 //Post request for "/register" route
 app.post("/register", function (req, res) {
     const name = req.body.name;
@@ -325,7 +340,14 @@ app.post("/shorten", async function (req, res) {
                     });
                     await newLink.save();
                     hashValue = hash;
-                    res.redirect("/shorten");
+                    User.findOneAndUpdate({ _id: req.user.id }, { $push: { links: id } }, function (err) {
+                        if (!err) {
+                            res.redirect("/shorten");
+                        }
+                        else {
+                            console.log(err);
+                        }
+                    });
                 }
             });
         }
@@ -349,14 +371,17 @@ app.post("/shorten", async function (req, res) {
                         await newLink.save();
                         hashValue = hash;
                         isAlias = true;
-                        res.redirect("/shorten");
+                        User.findOneAndUpdate({ _id: id }, { $push: { links: id } }, function (err) {
+                            if (!err) {
+                                res.redirect("/shorten");
+                            }
+                        });
                     }
                     else {
                         already = true;
                         res.redirect("/shorten");
                         isAlias = true;
                     }
-
                 }
             });
         }
