@@ -254,7 +254,7 @@ app.get("/stats", async function (req, res) {
         const linksArray = req.user.links;
         const linkObjects = await Link.find({ '_id': { $in: linksArray } });
         console.log(linkObjects);
-        res.render("stats", {links: linkObjects});
+        res.render("stats", { links: linkObjects });
     }
     else {
         //Redirect to "/login" page if user is not logged-in
@@ -371,7 +371,7 @@ app.post("/shorten", async function (req, res) {
                         await newLink.save();
                         hashValue = hash;
                         isAlias = true;
-                        User.findOneAndUpdate({ _id: id }, { $push: { links: id } }, function (err) {
+                        User.findOneAndUpdate({ _id: req.user.id }, { $push: { links: id } }, function (err) {
                             if (!err) {
                                 res.redirect("/shorten");
                             }
