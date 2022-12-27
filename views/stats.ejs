@@ -7,8 +7,9 @@
     >
       Analytics
     </h1>
+    <input type="text" id="golink" class="mb-8 block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search By Link, Hash, ID, Custom, Clicks..." required>
     <div
-      class="w-full bg-white rounded-lg shadow dark:border dark:bg-gray-800 dark:border-gray-700"
+      class="w-full bg-white rounded-lg shadow dark:border dark:bg-primary-700 dark:bg-primary-700"
     >
       <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
         <table
@@ -25,7 +26,7 @@
               <th scope="col" class="py-3 px-6">Custom Link</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tabledata">
             <% for(var i = 0; i<links.length; i++){ %> 
             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
               <th
@@ -53,5 +54,17 @@
     <div class="py-8"></div>
   </div>
 </section>
+
+<script>
+  $(document).ready(function() {
+      $("#golink").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#tabledata tr").filter(function() {
+              $(this).toggle($(this).text()
+              .toLowerCase().indexOf(value) > -1)
+          });
+      });
+  });
+</script>
 
 <%- include("footer") %>
