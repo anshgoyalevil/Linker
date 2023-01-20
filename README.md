@@ -39,7 +39,7 @@ Following Node Modules are used:
 
 ## Installation
 
-Please refer to the installation docs here.
+Please refer to the [installation docs here](https://github.com/anshgoyalevil/Linker/blob/master/installation.md).
 
 ## How to start contributing to this project?
 
