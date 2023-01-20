@@ -9,6 +9,21 @@ Highlights:
 - It supports custom alias and 62 bit hashing.
 - 62 bit hashing is implemented with O(1) CRUD operation for faster performance.
 
+## Installation
+
+Please refer to the [installation docs here](https://github.com/anshgoyalevil/Linker/blob/master/installation.md).
+
+## How to start contributing to this project?
+
+The Linker project is built by the community for the community. We welcome contributions from everyone, especially new contributors.
+
+You can help with Linker's development in many ways, including art, coding, design and documentation.
+
+Developers: please [see this wiki page](https://github.com/anshgoyalevil/Linker/blob/master/installation.md) for instructions on how to set things up and commit changes.
+All other contributors: please see our [general contributor guidelines](https://github.com/anshgoyalevil/Linker/blob/master/contribution.md).
+
+## Check out some [screenshots of the application here](https://github.com/anshgoyalevil/Linker/blob/master/preview.md)
+
 ## Frontend Technologies Used:-
 - HTML
 - CSS
@@ -36,18 +51,3 @@ Following Node Modules are used:
 - passport-google-oauth20 - passport auth strategy for google authentication
 - mongoose-findorcreate - a utility mongoose function
 - http - to handle http requests and server
-
-## Installation
-
-Please refer to the [installation docs here](https://github.com/anshgoyalevil/Linker/blob/master/installation.md).
-
-## How to start contributing to this project?
-
-The Linker project is built by the community for the community. We welcome contributions from everyone, especially new contributors.
-
-You can help with Linker's development in many ways, including art, coding, design and documentation.
-
-Developers: please [see this wiki page](https://github.com/anshgoyalevil/Linker/blob/master/installation.md) for instructions on how to set things up and commit changes.
-All other contributors: please see our [general contributor guidelines](https://github.com/anshgoyalevil/Linker/blob/master/contribution.md).
-
-## Check out some [screenshots of the application here](https://github.com/anshgoyalevil/Linker/blob/master/preview.md)
