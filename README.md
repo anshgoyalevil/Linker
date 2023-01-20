@@ -2,6 +2,8 @@
 
 Beautiful UI & UX Link Shortner Web App with Link Analytics and User account/authentication system.
 
+There are a lot of link shorteners already on the internet like bitly, but what makes it different is that it can be self hosted. You own the server, database, and basically the whole control of the application. *You no longer have to use the bit.ly/random stuff now, you can create your own server, with the domain name of your choice, just like [go.ansh.live](https://go.ansh.live)
+
 Highlights:
 - The webapp is completely responsive/cross-platform.
 - It contains analytics for the link clicks.
